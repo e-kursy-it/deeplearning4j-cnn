@@ -27,7 +27,13 @@ import static spark.Spark.*;
 
 public class CaptchaCracker {
     public static void main(String[] args) throws Exception {
-        ComputationGraph computationGraph = ModelSerializer.restoreComputationGraph(new File("src/main/resources/models/multiDigitNumberRecognition_38.zip"), false);
+
+        /**
+         * You can download pre-trained model from
+         *
+         * https://deeplearning4j.e-kursy.it/models/multiDigitNumberRecognition_after_38_epochs.zip
+         */
+        ComputationGraph computationGraph = ModelSerializer.restoreComputationGraph(new File("src/main/resources/models/multiDigitNumberRecognition_after_38_epochs.zip"), false);
 
         staticFiles.location("/static/");
         staticFiles.expireTime(1);
