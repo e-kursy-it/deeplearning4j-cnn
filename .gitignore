@@ -21,3 +21,10 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+
+target/*
+**/target/*
+captcha/dl4jcnn.*
+cat_dog_vgg/out.png
+cat_dog_vgg/catdogvgg16.iml
+captcha/upload/1377751785943020844

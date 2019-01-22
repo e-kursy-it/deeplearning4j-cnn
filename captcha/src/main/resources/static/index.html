@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+    <title>Captcha Demo!</title>
+    <style>
+        #result span {
+            padding: 5px;
+            font-size: 2em;
+        }
+        form {
+          border: 5px solid blue;
+          width:  500px;
+          height: 300px;
+        }
+        img {
+            max-width: 300px;
+        }
+
+    </style>
+</head>
+<body>
+<div id="dropZone">
+<form>
+
+<input type="file" name="uploaded_file" id="file" />
+<div>
+    <img id="image" />
+</div>
+
+</form>
+</div>
+<div id="result">
+
+</div>
+<script type="module">
+    import { init } from './upload.js';
+
+    init(() => {
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = 'Loading...';
+    },
+    (json) => {
+        if (json.digits && json.digits.length) {
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = json.digits.map((digit) => `<span>${digit}</span>`).join('');
+        }
+    });
+
+</script>
+</body>
+</html>
