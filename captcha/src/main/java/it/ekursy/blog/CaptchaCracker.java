@@ -1,9 +1,7 @@
 package it.ekursy.blog;
 
 import org.deeplearning4j.nn.graph.ComputationGraph;
-import org.deeplearning4j.nn.multilayer.MultiLayerNetwork;
 import org.deeplearning4j.util.ModelSerializer;
-import org.jetbrains.annotations.NotNull;
 import org.nd4j.linalg.api.ndarray.INDArray;
 import org.nd4j.linalg.factory.Nd4j;
 import spark.Request;
@@ -19,7 +17,6 @@ import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
@@ -91,7 +88,6 @@ public class CaptchaCracker {
 
     }
 
-    @NotNull
     private static Path receiveUploadedFile(File uploadDir, Request req) throws IOException, ServletException {
         Path tempFile = Files.createTempFile(uploadDir.toPath(), "", "");
 
@@ -124,7 +120,6 @@ public class CaptchaCracker {
         return digit.reshape(1, 1, 60, 160).divi(0xff);
     }
 
-    @NotNull
     private static BufferedImage resize(BufferedImage image) {
         BufferedImage gray = new BufferedImage(160, 60, BufferedImage.TYPE_BYTE_GRAY);
 
@@ -136,7 +131,6 @@ public class CaptchaCracker {
         return gray;
     }
 
-    @NotNull
     private static BufferedImage invertColors(BufferedImage inputImage) {
         BufferedImage gray = new BufferedImage(inputImage.getWidth(), inputImage.getHeight(), BufferedImage.TYPE_BYTE_GRAY);
 
